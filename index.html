@@ -129,13 +129,15 @@
         </div>
         
         <div class="slider-container">
-            <label for="resolutionSlider">Rozdzielczość obrazu: <span id="resolutionValue" class="slider-value">400x150</span></label>
-            <input type="range" id="resolutionSlider" class="slider" min="200" max="600" value="400" step="50">
-        </div>
-        
-        <div class="slider-container">
-            <label for="fontSizeSlider">Wielkość czcionki: <span id="fontSizeValue" class="slider-value">100</span>px</label>
+            <label for="fontSizeSlider">Wielkość czcionki: 
+            <span id="fontSizeValue" class="slider-value">100</span>px
+            </label>
             <input type="range" id="fontSizeSlider" class="slider" min="50" max="200" value="100" step="5">
+        </div>
+
+        <div class="slider-container">
+            <label for="fontColorPicker">Kolor czcionki:</label>
+            <input type="color" id="fontColorPicker" value="#ffffff">
         </div>
         
         <canvas id="outputCanvas" width="400" height="150"></canvas>
@@ -159,9 +161,11 @@
             const fontSizeSlider = document.getElementById('fontSizeSlider');
             const resolutionValue = document.getElementById('resolutionValue');
             const fontSizeValue = document.getElementById('fontSizeValue');
+            const fontColorPicker = document.getElementById('fontColorPicker');
             
             let currentText = '';
             let currentFontSize = 100;
+            let currentFontColor = '#ffffff';
             
             const font = new FontFace('Oznaczenia', 'url(Oznaczenia.ttf)');
             
@@ -182,6 +186,13 @@
                     drawText(text);
                 } else {
                     alert("Wpisz poprawne oznaczenie!");
+                }
+            });
+
+            fontColorPicker.addEventListener('input', function() {
+                currentFontColor = this.value;
+                if (currentText) {
+                    drawText(currentText);
                 }
             });
 
@@ -227,16 +238,16 @@
 
             function drawText(text) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                ctx.fillStyle = 'white';
+
+                 ctx.fillStyle = currentFontColor; // ← dynamiczny kolor
                 ctx.font = `${currentFontSize}px "Oznaczenia"`;
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                
+
                 ctx.fillText(text, canvas.width / 2, canvas.height / 2);
-                
-                downloadLink.href = canvas.toDataURL('image/png');
-            }
+
+                 downloadLink.href = canvas.toDataURL('image/png');
+           }
         });
     </script>
 </body>

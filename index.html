@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generator Numerów Operacyjnych</title>
+    <title>Generator Numerów Operacyjnych V2</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -201,12 +201,6 @@
                 }
             });
 
-            fontColorPicker.addEventListener('input', function() {
-                currentFontColor = this.value;
-                if (currentText) {
-                    drawText(currentText);
-                }
-            });
 
             resolutionSlider.addEventListener('input', function() {
                 const width = parseInt(this.value);
@@ -222,6 +216,13 @@
             fontSizeSlider.addEventListener('input', function() {
                 currentFontSize = parseInt(this.value);
                 fontSizeValue.textContent = currentFontSize;
+                if (currentText) {
+                    drawText(currentText);
+                }
+            });
+
+            fontColorPicker.addEventListener('input', function() {
+                currentFontColor = this.value;
                 if (currentText) {
                     drawText(currentText);
                 }

@@ -12,48 +12,25 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #666, #333);
+            background: linear-gradient(135deg, #ff6b6b, #b30000);
             padding: 20px;
-        }
-
-        .sidebar {
-            position: fixed;
-            left: 60px;
-            top: 60px;
-            width: 260px;
-            height: 67vh;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            margin-right: 25px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            color: white;
-        }
-
-        .sidebar h2 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-align: center;
         }
 
         .container {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.15);
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0,0,0,0.3);
             text-align: center;
             max-width: 600px;
             width: 90%;
+            color: white;
         }
 
         canvas {
-            border: 2px dashed rgba(255,255,255,0.3);
+            border: 2px dashed rgba(255,255,255,0.4);
             margin: 20px 0;
-            background: rgba(0,0,0,0.2);
+            background: rgba(0,0,0,0.25);
             max-width: 100%;
             height: auto;
         }
@@ -64,7 +41,7 @@
             width: 220px;
             margin: 12px;
             text-align: center;
-            background: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.9);
             border: none;
             border-radius: 5px;
         }
@@ -72,7 +49,7 @@
         button {
             padding: 12px 25px;
             font-size: 16px;
-            background: #4CAF50;
+            background: #ff3333;
             color: white;
             border: none;
             border-radius: 5px;
@@ -82,7 +59,7 @@
         }
 
         button:hover {
-            background: #45a049;
+            background: #cc0000;
             transform: scale(1.05);
         }
 
@@ -94,53 +71,19 @@
             font-weight: bold;
         }
 
-        .controls {
-            margin: 15px 0;
-        }
-
-        h1 {
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            margin-top: 0;
-        }
-
-        footer {
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        footer a {
-            color: #4CAF50;
-            text-decoration: underline;
-        }
-
         .slider-container {
             margin: 15px 0;
             color: white;
             width: 100%;
         }
 
-        .slider-container label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-
         .slider {
             width: 90%;
             height: 10px;
             border-radius: 5px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.3);
             outline: none;
             -webkit-appearance: none;
-        }
-
-        .color-container {
-            margin: 15px 0;
-            color: rgb(255, 255, 255);
-            width: 100%;
         }
 
         .slider::-webkit-slider-thumb {
@@ -148,9 +91,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #4CAF50;
-            outline: 4px;
-            outline-color: black;
+            background: #ff3333;
             cursor: pointer;
         }
 
@@ -163,50 +104,67 @@
         }
 
         input[type="color"] {
-            -webkit-appearance: none; 
-            border: none;
-            vertical-align: middle;
             width: 35px;
             height: 35px;
-            padding: 0;
-            background: none;
+            border-radius: 8px;
+            border: 2px solid #7a0000;
             cursor: pointer;
-            border-radius: 8px;
         }
 
-        input[type="color"]::-webkit-color-swatch-wrapper {
-            padding: 0;
+        h1 {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            margin-top: 0;
         }
 
-        input[type="color"]::-webkit-color-swatch {
-            border: 2px solid #6b6b6b;
-            border-radius: 8px;
+        footer {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ffd6d6;
+        }
+    .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 0;
+            background: rgba(255, 0, 0, 0.85);
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            z-index: 9999;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: slide 12s linear infinite;
+        }
+        .top-bar a {
+            color: #ffe6e6;
+            text-decoration: underline;
+        }
+        @keyframes slide {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
     </style>
 </head>
 <body>
-    <!-- 🟩 Panel boczny -->
-    <div class="sidebar">
-        <h2>Inne przydatne linki</h2>
-        <p><strong>Grafiki - Wkrótce...</strong></p>
-        <p><strong>Rejestracje - Wkrótce...</strong></p>
-        <p><strong>Poradniki - Wkrótce...</strong></p>
-        <p><strong>Kompendium wiedzy o straży/policji/pogotowiu - Wkrótce...</strong></p>
-    </div>
-    
+    <div class="top-bar">Strona przeniesiona na <a href="#" id="redirectLink">TUTAJ</a> — Ta strona zostanie usunięta 1 grudnia 2025!</div>
     <div class="container">
         <h1>Generator Numerów Operacyjnych</h1>
-        
+
         <div class="controls">
             <input type="text" id="customInput" placeholder="np. 423pX5" maxlength="6">
             <button id="generateCustom">Zastosuj</button>
         </div>
-        
+
         <div class="slider-container">
-            <label for="fontSizeSlider">Wielkość czcionki: 
-            <span id="fontSizeValue" class="slider-value">100</span>px
-            </label>
+            <label for="fontSizeSlider">Wielkość czcionki: <span id="fontSizeValue" class="slider-value">100</span>px</label>
             <input type="range" id="fontSizeSlider" class="slider" min="50" max="200" value="100" step="5">
         </div>
 
@@ -219,14 +177,17 @@
             <label for="fontColorPicker">Kolor czcionki:</label>
             <input type="color" id="fontColorPicker" value="#ffffff">
         </div>
-        
+
         <canvas id="outputCanvas" width="400" height="150"></canvas>
-        
+
         <div class="controls">
             <button id="generateRandom">Generuj Losowe</button>
             <a id="downloadLink" href="#" download="numer_operacyjny.png">Pobierz Obraz</a>
         </div>
-        <footer>Zrobione przez <a href="https://guns.lol/michaelfries" target="_blank">Michael Fries</a></footer>
+
+        <footer>
+            Zrobione przez <a href="https://guns.lol/michaelfries" target="_blank">Michael Fries</a>
+        </footer>
     </div>
 
     <script>
@@ -242,13 +203,13 @@
             const resolutionValue = document.getElementById('resolutionValue');
             const fontSizeValue = document.getElementById('fontSizeValue');
             const fontColorPicker = document.getElementById('fontColorPicker');
-            
+
             let currentText = '';
             let currentFontSize = 100;
             let currentFontColor = '#ffffff';
-            
+
             const font = new FontFace('Oznaczenia', 'url(Oznaczenia.ttf)');
-            
+
             font.load().then(function(loadedFont) {
                 document.fonts.add(loadedFont);
                 generateRandom();
@@ -258,7 +219,7 @@
             });
 
             generateRandomBtn.addEventListener('click', generateRandom);
-            
+
             generateCustomBtn.addEventListener('click', function() {
                 const text = customInput.value.trim();
                 if (text) {
@@ -275,24 +236,18 @@
                 canvas.width = width;
                 canvas.height = height;
                 resolutionValue.textContent = `${width}x${height}`;
-                if (currentText) {
-                    drawText(currentText);
-                }
+                if (currentText) drawText(currentText);
             });
 
             fontSizeSlider.addEventListener('input', function() {
                 currentFontSize = parseInt(this.value);
                 fontSizeValue.textContent = currentFontSize;
-                if (currentText) {
-                    drawText(currentText);
-                }
+                if (currentText) drawText(currentText);
             });
 
             fontColorPicker.addEventListener('input', function() {
                 currentFontColor = this.value;
-                if (currentText) {
-                    drawText(currentText);
-                }
+                if (currentText) drawText(currentText);
             });
 
             function generateRandom() {
@@ -300,7 +255,7 @@
                 const middleLetter = String.fromCharCode(Math.floor(Math.random() * 16) + 97);
                 const useLetterInNum2 = Math.random() > 0.5;
                 let num2;
-                
+
                 if(useLetterInNum2) {
                     const letter = String.fromCharCode(Math.floor(Math.random() * 26) + 65);
                     const number = Math.floor(Math.random() * 10);
@@ -308,7 +263,7 @@
                 } else {
                     num2 = '21';
                 }
-                
+
                 const text = `${num1}${middleLetter}${num2}`;
                 currentText = text;
                 customInput.value = text;
@@ -323,7 +278,7 @@
                 ctx.textBaseline = 'middle';
                 ctx.fillText(text, canvas.width / 2, canvas.height / 2);
                 downloadLink.href = canvas.toDataURL('image/png');
-           }
+            }
         });
     </script>
 </body>
